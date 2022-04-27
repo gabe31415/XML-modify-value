@@ -12,7 +12,7 @@ if (Test-Path -Path $PathProd) {
    [xml]$xml = Get-Content -Path $PathProd
    $webDomains = $xml.SelectSingleNode("//configuration/appSettings/add[@key = 'webDomains']")
    if ($webDomains.value.Contains($NewDomain)){
-      Write-Host "Value IS present."
+      Write-Host "Value IS present, not changes made."
    } else {
       Write-Host "Value NOT present in: " $webDomains.value
       $newValue = $webDomains.value + ', ' + $NewDomain
